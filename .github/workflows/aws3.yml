@@ -56,7 +56,7 @@ jobs:
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
           
-      - run: chmod 400 ${{ secrets.EC2_SSH_KEY }}
+      - run: chmod 400 /home/runner/.ssh/deploy_key
 
       - run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/fd-app-img:${{ steps.meta.outputs.tags }}
       - run: docker run --name fd-app:${{ steps.meta.outputs.tags }} -p 5001:5001 ${{ secrets.DOCKER_HUB_USERNAME }}/fd-app-img
