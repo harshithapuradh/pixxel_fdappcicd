@@ -94,5 +94,9 @@ jobs:
 
             echo "Using the pulled docker image to run the docker container"
             sudo docker run -d --name fd-app -p 5001:5001 harshithapuradh/fd-app-img:master
+            
+            
+            
+            ## FInally done
 
    
