@@ -60,16 +60,8 @@ jobs:
 
       - run: chmod 400 /home/runner/.ssh/deploy_key
 
-
       - run: docker pull ${{ USERNAME }}/fd-app-img:${{ TAG }}
-
-
-      #docker pull harshithapuradh/fd-app-img:master
-
-
 
       - run: docker run --name fd-app:${{ steps.meta.outputs.tags }} -p 5001:5001 ${{ secrets.DOCKER_HUB_USERNAME }}/fd-app-img
 
-          #echo "docker logs -f fd-app:${{ steps.meta.outputs.tags }}" 
-
-      
+          #echo "docker logs -f fd-app:${{ steps.meta.outputs.tags }}"       
