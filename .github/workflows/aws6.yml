@@ -55,12 +55,12 @@ jobs:
           REMOTE_HOST: ${{ secrets.HOST_DNS }}
           REMOTE_USER: ${{ secrets.USERNAME }}
           TARGET: ${{ secrets.TARGET_DIR }}
-          USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
-          TAG: ${{ steps.meta.outputs.tags }}
+          #USERNAME: ${{ secrets.DOCKER_HUB_USERNAME }}
+          #TAG: ${{ steps.meta.outputs.tags }}
 
       - run: chmod 400 /home/runner/.ssh/deploy_key
 
-      - run: docker pull ${{ USERNAME }}/fd-app-img:${{ TAG }}
+      - run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/fd-app-img:${{ steps.meta.outputs.tags }}
 
       - run: docker run --name fd-app:${{ steps.meta.outputs.tags }} -p 5001:5001 ${{ secrets.DOCKER_HUB_USERNAME }}/fd-app-img
 
