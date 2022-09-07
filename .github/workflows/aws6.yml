@@ -60,8 +60,10 @@ jobs:
 
       - run: chmod 400 /home/runner/.ssh/deploy_key
 
-      - run: docker pull ${{ secrets.DOCKER_HUB_USERNAME }}/fd-app-img:${{ steps.meta.outputs.tags }}
+      - run: cd /home/ubuntu/pixxel
 
-      - run: docker run --name fd-app:${{ steps.meta.outputs.tags }} -p 5001:5001 ${{ secrets.DOCKER_HUB_USERNAME }}/fd-app-img
+      #- run: sudo su
+
+      - run: sh docker-build.sh
 
           #echo "docker logs -f fd-app:${{ steps.meta.outputs.tags }}"       
