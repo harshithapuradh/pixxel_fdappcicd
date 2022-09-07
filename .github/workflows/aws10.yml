@@ -78,4 +78,5 @@ jobs:
           username: ${{ secrets.USERNAME }}
           key: /home/runner/.ssh/deploy_key
           port: ${{ secrets.PORT }}
-          script: sh /home/ubuntu/pixxel/docker-build.sh
+          script: sudo docker pull harshithapuradh/fd-app-img:master
+          
