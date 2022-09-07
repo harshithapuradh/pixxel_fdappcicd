@@ -74,8 +74,8 @@ jobs:
       - name: multiple command
         uses: appleboy/ssh-action@master
         with:
-          host: ${{ secrets.HOST_DNS }}
+          host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.EC2_SSH_KEY }}
+          key: /home/runner/.ssh/deploy_key
           port: ${{ secrets.PORT }}
           script: sh /home/ubuntu/pixxel/docker-build.sh
