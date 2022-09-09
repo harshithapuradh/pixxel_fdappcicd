@@ -71,7 +71,7 @@ jobs:
           #echo "docker logs -f fd-app:${{ steps.meta.outputs.tags }}"       
 
     
-      - name: multiple command
+      - name: multiple SSH command
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.HOST }}
@@ -98,6 +98,6 @@ jobs:
             
             
             ## FInally done
-            ## Please acces the web application using the public IP 
+            ## Please acces the web application using the public IP add
 
    
